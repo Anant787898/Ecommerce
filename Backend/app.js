@@ -2,4 +2,10 @@ import express from "express";
 
 const app = express();
 
-export default app; 
+//JSON BODY
+app.use(express.json());
+
+//CORS
+app.use(cors());
+
+export default app;
