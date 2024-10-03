@@ -1,5 +1,5 @@
 import app from "./app.js";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 import dbConnection from "./util/db.js";
 
 dotenv.config();
@@ -8,6 +8,6 @@ dotenv.config();
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-    dbConnection();
-})
+  console.log(`Server is running on port ${PORT}`);
+  dbConnection();
+});
