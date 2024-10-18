@@ -2,6 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import cron from "node-cron";
 import dbConnection from "./utils/db.js";
+import sendWelcomeEmail from "./EmailServices/sendWelcomeEmail.js";
+import sendPendingOrderEmail from "./EmailServices/sendPendingOrderEmail.js";
 
 dotenv.config();
 
@@ -13,11 +15,12 @@ const PORT = process.env.PORT;
 
 const services = () => {
   cron.schedule("* * * * * *", () => {
-    console.log("Running a task every second");
+    sendWelcomeEmail();
+    sendPendingOrderEmail();
   });
 };
 
-// services();
+services();
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
