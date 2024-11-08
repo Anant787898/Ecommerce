@@ -66,7 +66,7 @@ function Banners() {
       </div>
 
       {/* RIGHT */}
-      <div className="flex flex-col ml-10">
+      <div className="flex flex-col ml-11">
         <div className="flex-1 bg-white p-5">
           <div className="flex flex-col">
             <span className="font-semibold">
