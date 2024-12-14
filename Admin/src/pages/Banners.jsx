@@ -4,6 +4,7 @@ function Banners() {
   return (
     <div className="flex justify-evenly m-[5%]">
       {/* LEFT */}
+
       <div className="mr-50px">
         <h2 className="text-xl font-semibold mb-4">Active Banners</h2>
         <div className="flex flex-col space-y-4">
@@ -66,12 +67,11 @@ function Banners() {
       </div>
 
       {/* RIGHT */}
+
       <div className="flex flex-col ml-11">
         <div className="flex-1 bg-white p-5">
           <div className="flex flex-col">
-            <span className="font-semibold">
-              Image:
-            </span>
+            <span className="font-semibold">Image:</span>
             <div className="border-2 border-[#444] h-[100px] w-[100px] border-solid rounded-md cursor-pointer">
               <div className="flex items-center justify-center mt-[39px]">
                 <label htmlFor="">
