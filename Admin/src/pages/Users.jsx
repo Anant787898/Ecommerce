@@ -22,15 +22,63 @@ function Users() {
     },
   ];
 
-  const data= [
-    { _id: "u001", name: "Alice Johnson", email: "alice@example.com", phone: "123-456-7890", role: "Admin" },
-    { _id: "u002", name: "Bob Smith", email: "bob@example.com", phone: "234-567-8901", role: "User" },
-    { _id: "u003", name: "Charlie Brown", email: "charlie@example.com", phone: "345-678-9012", role: "User" },
-    { _id: "u004", name: "David Clark", email: "david@example.com", phone: "456-789-0123", role: "Admin" },
-    { _id: "u005", name: "Eve Stone", email: "eve@example.com", phone: "567-890-1234", role: "User" },
-    { _id: "u006", name: "Frank Wilson", email: "frank@example.com", phone: "678-901-2345", role: "Admin" },
-    { _id: "u007", name: "Grace Lee", email: "grace@example.com", phone: "789-012-3456", role: "User" },
-    { _id: "u008", name: "Henry Kim", email: "henry@example.com", phone: "890-123-4567", role: "Admin" },
+  const data = [
+    {
+      _id: "u001",
+      name: "Alice Johnson",
+      email: "alice@example.com",
+      phone: "123-456-7890",
+      role: "Admin",
+    },
+    {
+      _id: "u002",
+      name: "Bob Smith",
+      email: "bob@example.com",
+      phone: "234-567-8901",
+      role: "User",
+    },
+    {
+      _id: "u003",
+      name: "Charlie Brown",
+      email: "charlie@example.com",
+      phone: "345-678-9012",
+      role: "User",
+    },
+    {
+      _id: "u004",
+      name: "David Clark",
+      email: "david@example.com",
+      phone: "456-789-0123",
+      role: "Admin",
+    },
+    {
+      _id: "u005",
+      name: "Eve Stone",
+      email: "eve@example.com",
+      phone: "567-890-1234",
+      role: "User",
+    },
+    {
+      _id: "u006",
+      name: "Frank Wilson",
+      email: "frank@example.com",
+      phone: "678-901-2345",
+      role: "Admin",
+    },
+    {
+      _id: "u007",
+      name: "Grace Lee",
+      email: "grace@example.com",
+      phone: "789-012-3456",
+      role: "User",
+    },
+    {
+      _id: "u008",
+      name: "Henry Kim",
+      email: "henry@example.com",
+      phone: "890-123-4567",
+      role: "Admin",
+    },
   ];
   return (
     <div className="p-5 w-[70vw] ">
@@ -38,10 +86,15 @@ function Users() {
         <h1 className=" text-[20px]">All Users</h1>
       </div>
       <div className="m-[15px]">
-        <DataGrid getRowId={(row) => row._id} rows={data} checkboxSelection columns={columns} />
+        <DataGrid
+          getRowId={(row) => row._id}
+          rows={data}
+          checkboxSelection
+          columns={columns}
+        />
       </div>
     </div>
-  )
+  );
 }
 
-export default Users
+export default Users;
