@@ -1,3 +1,4 @@
+import { userRequest } from "../requestMethods";
 import { loginFailure, loginStart, loginSuccess } from "./userRedux"
 
 export const login = async(dispatch, user) => {
