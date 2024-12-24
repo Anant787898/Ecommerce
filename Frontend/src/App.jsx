@@ -40,7 +40,7 @@ function App() {
           element:<Login />
         },
         {
-          path:"/register",
+          path:"/create-account",
           element:<Register />
         },
         {
