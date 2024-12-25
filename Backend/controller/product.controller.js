@@ -48,7 +48,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
 // GET PRODUCT
 
 const getProduct = asyncHandler(async (req, res) => {
-  const product = await product.findById(req.params.id);
+  const product = await Product.findById(req.params.id);
 
   if (!product) {
     res.status(400);
