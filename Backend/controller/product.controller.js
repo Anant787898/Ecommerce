@@ -48,7 +48,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
 // GET PRODUCT
 
 const getProduct = asyncHandler(async (req, res) => {
-  const product = await product.findById(req.params.id);
+  const product = await Product.findById(req.params.id);
 
   if (!product) {
     res.status(400);
@@ -76,13 +76,13 @@ const getAllProducts = asyncHandler(async (req, res) => {
       $text: {
         $search: qsearch,
         $caseSensitive: false,
-        $dicriticSensitive: false,
+        $diacriticSensitive: false,
       },
     });
   } else {
     products = await Product.find().sort({ createdAt: -1 });
-    res.status(200).json(products);
   }
+  res.status(200).json(products);
 });
 
 //RATING PRODUCT
