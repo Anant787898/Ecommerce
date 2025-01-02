@@ -131,7 +131,7 @@ const NewProduct = () => {
                 type="text"
                 cols={15}
                 rows={7}
-                name="desc"
+                name="description"
                 onChange={handleChange}
                 id=""
                 placeholder="Product Description"
