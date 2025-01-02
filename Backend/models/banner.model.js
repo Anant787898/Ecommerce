@@ -1,18 +1,15 @@
 import mongoose from "mongoose";
-
 const BannerSchema = mongoose.Schema(
   {
     title: {
       type: String,
       require: true,
     },
-
     subtitle: {
       type: String,
       require: true,
     },
-
-    image: {
+    img: {
       type: String,
       require: true,
     },
@@ -23,5 +20,4 @@ const BannerSchema = mongoose.Schema(
 );
 
 const Banner = mongoose.model("Banner", BannerSchema);
-
 export default Banner;
