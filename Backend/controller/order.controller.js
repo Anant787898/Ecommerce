@@ -1,26 +1,24 @@
 import Order from "../models/order.model.js";
 import asyncHandler from "express-async-handler";
 
-//CREATE ORDER
-
+// CREATE ORDER
 const createOrder = asyncHandler(async (req, res) => {
   const newOrder = Order(req.body);
   const savedOrder = await newOrder.save();
-
   if (!savedOrder) {
     res.status(400);
     throw new Error("Order was not created");
   } else {
-    res.status(201).json("savedOrder");
+    res.status(201).json(savedOrder);
   }
 });
 
-//UPDATE ORDER
-
+// UPDATE ORDER
 const updateOrder = asyncHandler(async (req, res) => {
+  
   const updatedOrder = await Order.findByIdAndUpdate(
     req.params.id,
-    { $set: req.body },
+    { $set: req.body},
     { new: true }
   );
 
@@ -32,40 +30,42 @@ const updateOrder = asyncHandler(async (req, res) => {
   }
 });
 
-//DELETE ORDER
-
+// DELETE ORDER
 const deleteOrder = asyncHandler(async (req, res) => {
-  const deletedOrder = await Order.findByIdAndDelete(req.params.id);
-  if (!deletedOrder) {
+  const order = await Order.findByIdAndDelete(req.params.id);
+  if (!order) {
     res.status(400);
-    throw new Error("Order was not deleted successfully");
+    throw new Error("order was not deleted successfully");
   } else {
-    res.status(200).json(deletedOrder);
+    res.status(200).json(order);
   }
 });
 
-//GET USER ORDER
-
+// GET USER ORDER
 const getUserOrder = asyncHandler(async (req, res) => {
-  const orders = await Order.find({ userId: req.params.id }).reverse();
-  if (!orders) {
-    res.status(400);
-    throw new Error("No orders were found or something went wrong");
+  const orders = await Order.find({ userId: req.params.id }).exec();
+
+  // Execute the query
+  if (!orders || orders.length === 0) {
+    res.status(404);
+    throw new Error("No orders were found for this user.");
   } else {
-    res.status(200).json(orders);
+    res.status(200).json(orders.reverse()); // Reverse the resulting array
   }
 });
 
-//GET ALL ORDERS
 
+// GET ALL ORDERS
 const getAllOrders = asyncHandler(async (req, res) => {
   const orders = await Order.find();
+
   if (!orders) {
     res.status(400);
-    throw new Error("No orders were found");
+    throw new Error("No order was found or something went wrong");
   } else {
     res.status(200).json(orders);
   }
 });
+console.log(getAllOrders)
 
-export { createOrder, updateOrder, deleteOrder, getUserOrder, getAllOrders };
+export { getAllOrders, getUserOrder, deleteOrder, createOrder, updateOrder };

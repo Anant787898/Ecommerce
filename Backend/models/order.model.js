@@ -1,22 +1,18 @@
 import mongoose from "mongoose";
-
 const OrderSchema = mongoose.Schema(
   {
     name: {
       type: String,
       require: true,
     },
-
     userId: {
       type: String,
       require: true,
     },
-
     products: {
       type: Array,
       require: true,
     },
-
     total: {
       type: Number,
       require: true,
@@ -45,5 +41,4 @@ const OrderSchema = mongoose.Schema(
 );
 
 const Order = mongoose.model("Order", OrderSchema);
-
 export default Order;
