@@ -69,10 +69,10 @@ const Products = ({ filters, sort, query }) => {
 
   return (
     <div className="flex flex-wrap mx-[40px]">
-      {filteredProducts.map((product, index) => (
+      {filteredProducts.map((product) => (
 
         <Link to={`/product/${product._id}`}>
-          <Product img={product.img} title={product.title} />
+          <Product product={product} />
         </Link>
       ))
       }

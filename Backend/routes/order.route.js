@@ -1,27 +1,17 @@
 import express from "express";
 const router = express.Router();
-import {
-  createOrder,
-  updateOrder,
-  deleteOrder,
-  getUserOrder,
-  getAllOrders,
-} from "../controller/order.controller.js";
+import {getAllOrders, getUserOrder, deleteOrder, createOrder, updateOrder} from "../controller/order.controller.js";
 import protect from "../Middleware/auth.middleware.js";
 
 // CREATE ORDER ROUTE
 router.post("/", createOrder);
-
-//DELETE ORDER ROUTE
-router.delete("/:id", deleteOrder);
-
-//UPDATE ORDER ROUTE
+// UPDATE ORDER ROUTE
 router.put("/:id", updateOrder);
-
-//GET ALL ORDERS
-router.get("/",protect, getAllOrders);
-
-// GET USER ORDER ROUTE
-router.get("/find/:userId", getUserOrder);
+// GET ALL ORDERS ROUTE
+router.get("/",getAllOrders);
+// DELETE ORDER ROUTE
+router.delete("/:id", deleteOrder);
+// GET USER'S ORDER ROUTE
+router.get("/find/:id", getUserOrder)
 
 export default router;

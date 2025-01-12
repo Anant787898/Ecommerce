@@ -11,7 +11,7 @@ import express from "express";
 const router = express.Router();
 
 //RATING PRODUCT ROUTE
-router.put("/rating/:productId", rateProduct);
+router.put("/rating/:id", rateProduct);
 
 //GET ALL PRODUCTS
 router.get("/", getAllProducts);

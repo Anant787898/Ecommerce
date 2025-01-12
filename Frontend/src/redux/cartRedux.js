@@ -25,7 +25,7 @@ const cartSlice = createSlice({
             if (index != -1) {
                 state.quantity -= 1
                 state.total = state.products[index].price * state.products[index].quantity
-                state.products.spalice(index, 1)
+                state.products.splice(index, 1)
             }
         },
 
